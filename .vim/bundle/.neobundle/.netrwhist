@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/Users/yokotaeiji/Documents/PJ/mushimameclub/src/.git'
+let g:netrw_dirhist_2='/Users/yokotaeiji/Documents/PJ/nanitabeyo/src/export'
+let g:netrw_dirhist_3='/Users/yokotaeiji/Documents/PJ/nanitabeyo/src/export/cakephp/app/Config'
+let g:netrw_dirhist_4='/Users/yokotaeiji/.ssh/github'
