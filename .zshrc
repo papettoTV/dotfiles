@@ -58,3 +58,8 @@ alias mvi="mvim --remote-tab-silent"
 #	fi
 #fi
 #}
+
+#titanium petap build
+alias tisim="ti build -p iphone"
+alias tidev="ti build -T device --platform iphone -V 'Eiji Yokota' -P BE5AF009-A59A-445C-ACBF-CC33C580B958"
+alias tiarc="ti build -T device --platform iphone -V 'Eiji Yokota' -P BE5AF009-A59A-445C-ACBF-CC33C580B958"
