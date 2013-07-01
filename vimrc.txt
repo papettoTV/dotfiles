@@ -3,7 +3,7 @@
 "" 基本設定 Basics
 "-------------------------------------------------------------------------------
 "let mapleader = ","              " キーマップリーダー
-"set scrolloff=5                  " スクロール時の余白確保
+set scrolloff=5                  " スクロール時の余白確保
 set textwidth=0                  " 一行に長い文章を書いていても自動折り返しをしない
 set nobackup                     " バックアップ取らない
 set autoread                     " 他で書き換えられたら自動で読み直す
@@ -17,7 +17,7 @@ set whichwrap=b,s,h,l,<,>,[,]    " カーソルを行頭、行末で止まらな
 set showcmd                      " コマンドをステータス行に表示
 set showmode                     " 現在のモードを表示
 "set viminfo='50,<1000,s100,\"50  " viminfoファイルの設定
-"set modelines=0                  " モードラインは無効
+set modelines=0                  " モードラインは無効
 
 " OSのクリップボードを使用する
 set clipboard+=unnamed
@@ -80,7 +80,7 @@ nnoremap d "_d
 "" インデント Indent
 "-------------------------------------------------------------------------------
 set autoindent   " 自動でインデント
-set paste        " ペースト時にautoindentを無効に(onにするとautocomplpop.vimが動かない)
+""set paste        " ペースト時にautoindentを無効に(onにするとautocomplpop.vimが動かない)
 set smartindent  " 新しい行を開始したときに、新しい行のインデントを現在行と同じ量にする。
 set cindent      " Cプログラムファイルの自動インデントを始める
 
@@ -96,6 +96,12 @@ else
 	set tags=./tags,./../tags,./*/tags,./../../tags,./../../../tags,./../../../../tags,./../../../../../tags
 endif
 	
+"tab pagesを使い易くする
+"nnoremap <C-t>  <Nop>
+"nnoremap <C-t>n  ;<C-u>tabnew<CR>
+nnoremap tab  ;<C-u>tabnew<CR>
+nnoremap <C-t>c  ;<C-u>tabclose<CR>
+
 "-------------------------------------------------------------------------------
 "" 検索設定 Search
 "-------------------------------------------------------------------------------
@@ -196,81 +202,7 @@ command! Utf8 edit ++enc=utf-8
 command! Jis Iso2022jp
 command! Sjis Cp932
 
-
-"""""""
-"neobundle
-"""""""
-filetype off 
- 
-if has('vim_starting')
-  set runtimepath+=~/.vim/neobundle.vim.git
-  call neobundle#rc(expand('~/.vim/.bundle'))
-endif
- 
-NeoBundle 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/vimproc'
-"after install, turn shell ~/.vim/bundle/vimproc, (n,g)make -f your_machines_makefile
-NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Shougo/neosnippet'
-
-filetype plugin on
-filetype indent on
-
-
-" 補完ウィンドウの設定
-set completeopt=menuone
- 
-" 起動時に有効化
-let g:neocomplcache_enable_at_startup = 1
- 
-" 大文字が入力されるまで大文字小文字の区別を無視する
-let g:neocomplcache_enable_smart_case = 1
- 
-" _(アンダースコア)区切りの補完を有効化
-let g:neocomplcache_enable_underbar_completion = 1
- 
-let g:neocomplcache_enable_camel_case_completion  =  1
- 
-" ポップアップメニューで表示される候補の数
-let g:neocomplcache_max_list = 20
- 
-" シンタックスをキャッシュするときの最小文字長
-let g:neocomplcache_min_syntax_length = 3
- 
-" ディクショナリ定義
-let g:neocomplcache_dictionary_filetype_lists = {
-    \ 'default' : '',
-    \ 'php' : $HOME . '/.vim/dict/php.dict',
-    \ 'ctp' : $HOME . '/.vim/dict/php.dict'
-    \ }
- 
-if !exists('g:neocomplcache_keyword_patterns')
-        let g:neocomplcache_keyword_patterns = {}
-endif
-let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
- 
-" スニペットを展開する。スニペットが関係しないところでは行末まで削除
-imap <expr><C-k> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : "\<C-o>D"
-smap <expr><C-k> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : "\<C-o>D"
- 
-" 前回行われた補完をキャンセルします
-inoremap <expr><C-g> neocomplcache#undo_completion()
- 
-" 補完候補のなかから、共通する部分を補完します
-inoremap <expr><C-l> neocomplcache#complete_common_string()
- 
-" 改行で補完ウィンドウを閉じる
-inoremap <expr><CR> neocomplcache#smart_close_popup() . "\<CR>"
- 
-"tabで補完候補の選択を行う
-inoremap <expr><TAB> pumvisible() ? "\<Down>" : "\<TAB>"
-inoremap <expr><S-TAB> pumvisible() ? "\<Up>" : "\<S-TAB>"
- 
-" <C-h>や<BS>を押したときに確実にポップアップを削除します
-inoremap <expr><C-h> neocomplcache#smart_close_popup().”\<C-h>”
- 
-" 現在選択している候補を確定します
-inoremap <expr><C-y> neocomplcache#close_popup()
- 
-" 現在選択している候補をキャンセルし、ポップアップを閉じます
-inoremap <expr><C-e> neocomplcache#cancel_popup()
+"-------------------------------------------------------------------------------
+" surrond.vim カスタマイズ
+"-------------------------------------------------------------------------------
+let g:surround_{char2nr("p")} = "<?php \n\r\n?>"

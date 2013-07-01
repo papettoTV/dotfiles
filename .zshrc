@@ -60,6 +60,7 @@ alias mvi="mvim --remote-tab-silent"
 #}
 
 #titanium petap build
-alias tisim="ti build -p iphone"
-alias tidev="ti build -T device --platform iphone -V 'Eiji Yokota' -P BE5AF009-A59A-445C-ACBF-CC33C580B958"
-alias tiarc="ti build -T device --platform iphone -V 'Eiji Yokota' -P BE5AF009-A59A-445C-ACBF-CC33C580B958"
+alias tisim="/Users/yokotaeiji/Documents/Titanium_Studio_Workspace/build_dev.sh"
+alias ticl="ti clean"
+alias tidev="echo 0 > Resources/env.txt;ti build -T device --platform iphone -V 'Eiji Yokota' -P 657A7DF7-E45A-457C-9EE9-9F3939619178"
+alias tiarc="echo 1 > Resources/env.txt;ti build -T device --platform iphone -V 'Eiji Yokota' -P 657A7DF7-E45A-457C-9EE9-9F3939619178"
