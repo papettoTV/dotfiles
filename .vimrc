@@ -8,6 +8,7 @@ set textwidth=0                  " 一行に長い文章を書いていても自
 set nobackup                     " バックアップ取らない
 set autoread                     " 他で書き換えられたら自動で読み直す
 set noswapfile                   " スワップファイル作らない
+set noundofile                   " undoファイル作らない
 set hidden                       " 編集中でも他のファイルを開けるようにする
 set backspace=indent,eol,start   " バックスペースでなんでも消せるように
 set formatoptions=lmoq           " テキスト整形オプション，マルチバイト系を追加
@@ -212,6 +213,7 @@ NeoBundle 'Shougo/vimproc'
 "after install, turn shell ~/.vim/bundle/vimproc, (n,g)make -f your_machines_makefile
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
+NeoBundle 'tpope/vim-fugitive'
 
 filetype plugin on
 filetype indent on
@@ -247,8 +249,9 @@ let g:neocomplcache_dictionary_filetype_lists = {
 if !exists('g:neocomplcache_keyword_patterns')
         let g:neocomplcache_keyword_patterns = {}
 endif
+" 日本語を補完候補として取得しないようにする
 let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
- 
+
 " スニペットを展開する。スニペットが関係しないところでは行末まで削除
 imap <expr><C-k> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : "\<C-o>D"
 smap <expr><C-k> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : "\<C-o>D"
@@ -269,8 +272,40 @@ inoremap <expr><S-TAB> pumvisible() ? "\<Up>" : "\<S-TAB>"
 " <C-h>や<BS>を押したときに確実にポップアップを削除します
 inoremap <expr><C-h> neocomplcache#smart_close_popup().”\<C-h>”
  
-" 現在選択している候補を確定します
-inoremap <expr><C-y> neocomplcache#close_popup()
+" 現在選択している候補をスペースで確定します
+inoremap <expr><Space> pumvisible() ? neocomplcache#close_popup() : "\<Space>"
  
 " 現在選択している候補をキャンセルし、ポップアップを閉じます
 inoremap <expr><C-e> neocomplcache#cancel_popup()
+
+""
+" 括弧補完
+""
+inoremap { {}<LEFT>
+inoremap [ []<LEFT>
+inoremap ( ()<LEFT>
+inoremap " ""<LEFT>
+inoremap ' ''<LEFT>
+vnoremap { "zdi{<C-R>z}<ESC>
+vnoremap [ "zdi[<C-R>z]<ESC>
+vnoremap ( "zdi(<C-R>z)<ESC>
+vnoremap " "zdi"<C-R>z"<ESC>
+vnoremap ' "zdi'<C-R>z'<ESC>
+
+
+" 保存に失敗して画面が横に伸びる対策
+cnoremap W w
+
+augroup PHP
+  autocmd!
+  autocmd FileType php set makeprg=php\ -l\ %
+  " php -lの構文チェックでエラーがなければ「No syntax errors」の一行だけ出力される
+  autocmd BufWritePost *.php silent make | if len(getqflist()) != 1 | copen | else | cclose | endif
+augroup END
+
+" なくてもいいけどあった方がより便利
+syntax on
+
+" git branch
+""set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%-14.(%l,%c%V%)\ %P 
