@@ -214,6 +214,7 @@ NeoBundle 'Shougo/vimproc'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'kchmck/vim-coffee-script'
 
 filetype plugin on
 filetype indent on
@@ -309,3 +310,10 @@ syntax on
 " git branch
 ""set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%-14.(%l,%c%V%)\ %P 
+
+" Require <Leader> before gu*/gU* (Change to lowr/upper case)
+" （打ち間違えで）勝手に小文字になる問題の対応
+noremap gu <Nop>
+noremap gU <Nop>
+noremap <Leader>gu gu
+noremap <Leader>gU gu

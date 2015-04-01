@@ -8,6 +8,20 @@ zle -N history-beginning-search-forward-end history-search-end
 bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
 
+# コマンド履歴
+HISTFILE=~/.zsh_history
+HISTSIZE=6000000
+SAVEHIST=6000000
+setopt hist_ignore_dups     # ignore duplication command history list
+setopt share_history        # share command history data
+
+# ディレクトリ名を入力するだけで移動
+setopt auto_cd
+
+# コマンド訂正
+setopt correct
+
+#ls color
 export CLICOLOR=1
 export LSCOLORS=gxfxcxdxbxegedabagacad
 export LS_COLORS=gxfxcxdxbxegedabagacad
@@ -36,10 +50,12 @@ PATH=/Users/yokotaeiji/Documents/PJ/swirl.jp/src/cake_pet/cake/console:$PATH
 PATH=/Users/yokotaeiji/bin:$PATH
 
 alias sdev='ssh -i ~/.ssh/sakura_rsa swirldev@testdeco.swirl.jp'
-alias sswirl='ssh swirl@swirl.jp -p 8022'
+alias sardev='ssh -i ~/.ssh/sakura_rsa swirl@49.212.125.216'
+alias sswirl='ssh swirl.jp'
 alias sdeco='ssh swirl@49.212.32.104 -p 8022'
 alias sktv='ssh swirl@49.212.125.216'
 alias slivedjs='ssh -i ~/.ssh/livedjs.pem root@ec2-54-248-189-104.ap-northeast-1.compute.amazonaws.com'
+alias splay='ssh -i .ssh/sakura_rsa yokota@playispeace.com'
 
 alias fgrep='find . -name "*.*" -print0 | xargs -0 grep -i -l'
 alias o='open'
@@ -91,3 +107,6 @@ function chpwd() { ls; echo -ne "\033]0;$(pwd | rev | awk -F \/ '{print "/"$1"/"
 
 # ビープ音を鳴らさないようにする
 setopt NO_beep
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"

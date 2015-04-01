@@ -1,0 +1,286 @@
+"version 6.0
+if &cp | set nocp | endif
+let s:cpo_save=&cpo
+set cpo&vim
+inoremap <silent> <Plug>(neocomplcache_start_omni_complete) 
+inoremap <silent> <Plug>(neocomplcache_start_auto_complete_no_select) 
+inoremap <silent> <Plug>(neocomplcache_start_auto_complete) =neocomplcache#popup_post()
+inoremap <silent> <expr> <Plug>(neocomplcache_start_unite_quick_match) unite#sources#neocomplcache#start_quick_match()
+inoremap <silent> <expr> <Plug>(neocomplcache_start_unite_complete) unite#sources#neocomplcache#start_complete()
+map! <S-Insert> <MiddleMouse>
+imap <D-BS> 
+imap <M-BS> 
+imap <M-Down> }
+inoremap <D-Down> <C-End>
+imap <M-Up> {
+inoremap <D-Up> <C-Home>
+noremap! <M-Right> <C-Right>
+noremap! <D-Right> <End>
+noremap! <M-Left> <C-Left>
+noremap! <D-Left> <Home>
+inoremap <silent> <expr> <Plug>(neosnippet_start_unite_snippet) unite#sources#snippet#start_complete()
+imap <silent> <Plug>(neocomplcache_start_unite_snippet) <Plug>(neosnippet_start_unite_snippet)
+inoremap <silent> <expr> <Plug>(neosnippet_jump) neosnippet#jump_impl()
+inoremap <silent> <expr> <Plug>(neosnippet_expand) neosnippet#expand_impl()
+inoremap <silent> <expr> <Plug>(neosnippet_jump_or_expand) neosnippet#jump_or_expand_impl()
+inoremap <silent> <expr> <Plug>(neosnippet_expand_or_jump) neosnippet#expand_or_jump_impl()
+imap <silent> <Plug>(neocomplcache_snippets_force_jump) <Plug>(neosnippet_jump)
+imap <silent> <Plug>(neocomplcache_snippets_force_expand) <Plug>(neosnippet_expand)
+imap <silent> <Plug>(neocomplcache_snippets_jump) <Plug>(neosnippet_jump_or_expand)
+imap <silent> <Plug>(neocomplcache_snippets_expand) <Plug>(neosnippet_expand_or_jump)
+snoremap  a<BS>
+smap <expr> 	 neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\	"
+smap  <Plug>(neosnippet_expand_or_jump)
+snoremap  a<BS>
+nnoremap c ;tabclose
+nmap  ;nohlsearch
+xmap ,h v`<Ik0i<!--`>j0i-->
+xmap ,b v`<Ik0i/*`>j0i*/
+xmap ,d :s/^\([/(]\*\|<!--\) \(.*\)(\*[/)]\|-->\)$/\2/:nohlsearch 
+xmap ,< :s/^\(.*\)$/<!-- \1 -->/:nohlsearch
+xmap ,( :s/^\(.*\)$/\(\* \1 \*\)/:nohlsearch
+xmap ,* :s/^\(.*\)$/\/\* \1 \*\//:nohlsearch
+xmap ,c :s/^\/\/\|^--\|^> \|^[#"%!;]//:nohlsearch
+xmap ,- :s/^/--/:nohlsearch
+xmap ,; :s/^/;/:nohlsearch
+xmap ,! :s/^/!/:nohlsearch
+xmap ,% :s/^/%/:nohlsearch
+xmap ," :s/^/\"/:nohlsearch
+xmap ,> :s/^/> /:nohlsearch
+xmap ,/ :s/^/\/\//:nohlsearch
+xmap ,# :s/^/#/:nohlsearch
+nmap 0 $
+nmap 9 ^
+nmap Q gq
+xmap Q gq
+omap Q gq
+xmap S <Plug>VSurround
+nmap cs <Plug>Csurround
+nmap ds <Plug>Dsurround
+nnoremap d "_d
+nmap ff :FufFile **/
+nmap gx <Plug>NetrwBrowseX
+xmap gS <Plug>VgSurround
+nnoremap tab ;tabnew
+nmap ySS <Plug>YSsurround
+nmap ySs <Plug>YSsurround
+nmap yss <Plug>Yssurround
+nmap yS <Plug>YSurround
+nmap ys <Plug>Ysurround
+snoremap <Left> bi
+snoremap <Right> a
+snoremap <Del> a<BS>
+snoremap <BS> a<BS>
+nmap <S-Insert> <MiddleMouse>
+xmap <S-Insert> <MiddleMouse>
+omap <S-Insert> <MiddleMouse>
+nmap <M-Down> }
+xmap <M-Down> }
+omap <M-Down> }
+nnoremap <D-Down> <C-End>
+xnoremap <D-Down> <C-End>
+onoremap <D-Down> <C-End>
+nmap <M-Up> {
+xmap <M-Up> {
+omap <M-Up> {
+nnoremap <D-Up> <C-Home>
+xnoremap <D-Up> <C-Home>
+onoremap <D-Up> <C-Home>
+nnoremap <M-Right> <C-Right>
+xnoremap <M-Right> <C-Right>
+onoremap <M-Right> <C-Right>
+nnoremap <D-Right> <End>
+xnoremap <D-Right> <End>
+onoremap <D-Right> <End>
+nnoremap <M-Left> <C-Left>
+xnoremap <M-Left> <C-Left>
+onoremap <M-Left> <C-Left>
+nnoremap <D-Left> <Home>
+xnoremap <D-Left> <Home>
+onoremap <D-Left> <Home>
+nnoremap <silent> <Plug>NetrwBrowseX :call netrw#NetrwBrowseX(expand("<cWORD>"),0)
+nnoremap <silent> <Plug>SurroundRepeat .
+xnoremap <silent> <Plug>(neosnippet_register_oneshot_snippet) :call neosnippet#register_oneshot_snippet()
+xnoremap <silent> <expr> <Plug>(neosnippet_start_unite_snippet_target) unite#sources#snippet_target#start()
+xnoremap <silent> <Plug>(neosnippet_expand_target) :call neosnippet#expand_target()
+xnoremap <silent> <Plug>(neosnippet_get_selected_text) :call neosnippet#get_selected_text(visualmode(), 1)
+snoremap <silent> <expr> <Plug>(neosnippet_jump) neosnippet#jump_impl()
+snoremap <silent> <expr> <Plug>(neosnippet_expand) neosnippet#expand_impl()
+snoremap <silent> <expr> <Plug>(neosnippet_jump_or_expand) neosnippet#jump_or_expand_impl()
+snoremap <silent> <expr> <Plug>(neosnippet_expand_or_jump) neosnippet#expand_or_jump_impl()
+smap <silent> <Plug>(neocomplcache_snippets_force_jump) <Plug>(neosnippet_jump)
+smap <silent> <Plug>(neocomplcache_snippets_force_expand) <Plug>(neosnippet_expand)
+smap <silent> <Plug>(neocomplcache_snippets_jump) <Plug>(neosnippet_expand_or_jump)
+smap <silent> <Plug>(neocomplcache_snippets_expand) <Plug>(neosnippet_expand_or_jump)
+xmap <BS> "-d
+imap S <Plug>ISurround
+imap s <Plug>Isurround
+imap  <Left>
+imap <expr> 	 neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\" : "\	"
+imap <NL> <Down>
+imap  <Plug>(neosnippet_expand_or_jump)
+imap  <Right>
+imap  "*pa
+imap  <Plug>Isurround
+inoremap  u
+let &cpo=s:cpo_save
+unlet s:cpo_save
+set ambiwidth=double
+set autoindent
+set autoread
+set background=dark
+set backspace=indent,eol,start
+set browsedir=buffer
+set cindent
+set clipboard=unnamed
+set cmdheight=2
+set completefunc=neocomplcache#manual_complete
+set completeopt=preview,menuone
+set errorformat=%m\ in\ %f\ on\ line\ %l
+set fileencodings=iso-2022-jp-3,euc-jisx0213,cp932,guess,ucs-bom,latin1,iso-2022-jp-3,utf-8,euc-jisx0213,euc-jp
+set formatexpr=autofmt#japanese#formatexpr()
+set guifont=Osaka-Mono:h14
+set guioptions=egmrLa
+set guitablabel=%M%t
+set helplang=ja
+set hidden
+set hlsearch
+set ignorecase
+set noimdisable
+set imdisableactivate
+set iminsert=0
+set imsearch=0
+set incsearch
+set langmenu=ja_ja.utf-8.macvim
+set laststatus=2
+set lazyredraw
+set makeprg=php\ -l\ %
+set modelines=0
+set mouse=a
+set operatorfunc=<SNR>27_opfunc
+set printexpr=system('open\ -a\ Preview\ '.v:fname_in)\ +\ v:shell_error
+set ruler
+set runtimepath=~/.vim/bundle/vundle,~/.vim/bundle/neocomplcache,~/.vim/bundle/neosnippet,~/.vim/bundle/vim-surround,~/.vim/bundle/SrcExpl,~/.vim/bundle/nerdtree,~/.vim/bundle/L9,~/.vim/bundle/FuzzyFinder,~/.vim,/Applications/MacVim.app/Contents/Resources/vim/vimfiles,/Applications/MacVim.app/Contents/Resources/vim/runtime,/Applications/MacVim.app/Contents/Resources/vim/vimfiles/after,~/.vim/after,/Applications/MacVim.app/Contents/Resources/vim/plugins/autofmt,/Applications/MacVim.app/Contents/Resources/vim/plugins/kaoriya,/Applications/MacVim.app/Contents/Resources/vim/plugins/vimdoc-ja,~/.vim/bundle/vundle/,~/.vim/bundle/vundle/after,~/.vim/bundle/neocomplcache/after,~/.vim/bundle/neosnippet/after,~/.vim/bundle/vim-surround/after,~/.vim/bundle/SrcExpl/after,~/.vim/bundle/nerdtree/after,~/.vim/bundle/L9/after,~/.vim/bundle/FuzzyFinder/after
+set scrolloff=5
+set showmatch
+set smartcase
+set smartindent
+set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
+set noswapfile
+set tags=./tags,./../tags,./*/tags,./../../tags,./../../../tags,./../../../../tags,./../../../../../tags,tags;/Users/yokotaeiji
+set termencoding=utf-8
+set title
+set visualbell
+set wildmenu
+set window=44
+" vim: set ft=vim :
+"
+"
+
+" neocomplcache snippet
+let g:neocomplcache_snippets_dir = $HOME.'/.vim/snippets'
+
+set nobackup
+
+
+" neobundle
+set nocompatible               " Be iMproved
+filetype off                   " Required!
+
+ if has('vim_starting')
+   set runtimepath+=~/.vim/bundle/neobundle.vim/
+ endif
+
+ call neobundle#rc(expand('~/.vim/bundle/'))
+
+filetype plugin indent on     " Required!
+
+" Installation check.
+if neobundle#exists_not_installed_bundles()
+  echomsg 'Not installed bundles : ' .
+        \ string(neobundle#get_not_installed_bundle_names())
+  echomsg 'Please execute ":NeoBundleInstall" command.'
+  "finish
+endif
+
+ " Let NeoBundle manage NeoBundle
+" NeoBundleFetch 'Shougo/neobundle.vim'
+
+ " Recommended to install
+ " After install, turn shell ~/.vim/bundle/vimproc, (n,g)make -f your_machines_makefile
+  'Shougo/vimproc'
+
+ " My Bundles here:
+ "
+ " Note: You don't set neobundle setting in .gvimrc!
+ " Original repos on github
+ "NeoBundle 'tpope/vim-fugitive'
+ "NeoBundle 'Lokaltog/vim-easymotion'
+ "NeoBundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+ " vim-scripts repos
+ NeoBundle 'L9'
+ NeoBundle 'FuzzyFinder'
+ "NeoBundle 'rails.vim'
+ " Non github repos
+ "NeoBundle 'git://git.wincent.com/command-t.git'
+ " Non git repos
+ "NeoBundle 'http://svn.macports.org/repository/macports/contrib/mpvim/'
+ "NeoBundle 'https://bitbucket.org/ns9tks/vim-fuzzyfinder'
+
+ " ...
+NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neosnippet'
+ filetype plugin indent on     " Required!
+ "
+ " Brief help
+ " :NeoBundleList          - list configured bundles
+ " :NeoBundleInstall(!)    - install(update) bundles
+ " :NeoBundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+
+ " Installation check.
+ NeoBundleCheck
+
+
+ " µ¯Æ°»þ¤ËÍ­¸ú²½
+"let g:neocomplcache_enable_at_startup = 1
+ 
+" ÂçÊ¸»ú¤¬ÆþÎÏ¤µ¤ì¤ë¤Þ¤ÇÂçÊ¸»ú¾®Ê¸»ú¤Î¶èÊÌ¤òÌµ»ë¤¹¤ë
+let g:neocomplcache_enable_smart_case = 1
+
+inoremap [] []<LEFT>
+inoremap () ()<LEFT>
+inoremap {} {}<LEFT>
+inoremap "" ""<LEFT>
+inoremap '' ''<LEFT>
+" ¥«¡¼¥½¥ë¥é¥¤¥ó¶¯Ä´
+set cursorline
+
+"vimrc³«¤¯
+nnoremap <Space>. :<C-u>tabnew $MYVIMRC<CR>
+"vimrcÈ¿±Ç
+nnoremap <Space>s. :<C-u>source $MYVIMRC<CR>
+
+" necomplecache Ää»ßÀ©¸æ
+cnoremap ncl NeoComplCacheLock
+cnoremap ncu NeoComplCacheUnlock
+
+
+" syntax check
+augroup PHP
+  autocmd!
+  autocmd FileType php set makeprg=php\ -l\ %
+  " php -l¤Î¹½Ê¸¥Á¥§¥Ã¥¯¤Ç¥¨¥é¡¼¤¬¤Ê¤±¤ì¤Ð¡ÖNo syntax errors¡×¤Î°ì¹Ô¤À¤±½ÐÎÏ¤µ¤ì¤ë
+  autocmd BufWritePost *.php silent make | if len(getqflist()) != 1 | copen | else | cclose | endif
+augroup END
+
+" ¤Ê¤¯¤Æ¤â¤¤¤¤¤±¤É¤¢¤Ã¤¿Êý¤¬¤è¤êÊØÍø
+syntax on
+
+
+" NERDTree
+NeoBundle 'scrooloose/nerdtree'
+
+" :w ¤ò:W¤ÈÂÇ¤Á´Ö°ã¤¦ÂÐºö 
+cnoreabbrev <expr> W ((getcmdtype() is# ':' && getcmdline() is# 'W')?('w'):('W'))
+
+NeoBundle 'jiangmiao/simple-javascript-indenter'
