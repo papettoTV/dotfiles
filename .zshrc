@@ -25,7 +25,8 @@ setopt correct
 export CLICOLOR=1
 export LSCOLORS=gxfxcxdxbxegedabagacad
 export LS_COLORS=gxfxcxdxbxegedabagacad
-eval $(gdircolors ~/.dotfiles/lscolor/dircolors-solarized/dircolors.ansi-universal)
+# error on macbook
+#eval $(gdircolors ~/.dotfiles/lscolor/dircolors-solarized/dircolors.ansi-universal)
 autoload -U compinit
 compinit
 
@@ -36,10 +37,10 @@ compinit
 export LANG=ja_JP.UTF-8
 export LESSCHARSET=utf-8
 
-#alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
-#alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
-alias vi=mvim
-alias vim=mvim
+alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+#alias vi=mvim
+#alias vim=mvim
 
 PROMPT="%/%% "
 PROMPT2="%_%% "
@@ -61,6 +62,7 @@ alias fgrep='find . -name "*.*" -print0 | xargs -0 grep -i -l'
 alias o='open'
 
 alias gitx='/Applications/GitX.app/Contents/MacOS/GitX'
+alias gith='git push heroku master && heroku logs --tail'
  
 
 #export XMODIFIERS='@im=kinput2'

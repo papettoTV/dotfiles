@@ -204,8 +204,8 @@ command! Sjis Cp932
 filetype off 
  
 if has('vim_starting')
-  set runtimepath+=~/.vim/neobundle.vim.git
-  call neobundle#rc(expand('~/.vim/.bundle'))
+  set runtimepath+=~/.vim/neobundle.vim
+  call neobundle#begin(expand('~/.vim/.bundle'))
 endif
  
 NeoBundle 'Shougo/neobundle.vim'
@@ -213,8 +213,16 @@ NeoBundle 'Shougo/vimproc'
 "after install, turn shell ~/.vim/bundle/vimproc, (n,g)make -f your_machines_makefile
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
-NeoBundle 'tpope/vim-fugitive'
+"NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'scrooloose/nerdtree'
+
+" nerdtree用タブ移動ショートカット 
+nnoremap <C-]> gt
+" 効いてない？
+nnoremap <C-[> gT 
+
+call neobundle#end()
 
 filetype plugin on
 filetype indent on
@@ -309,7 +317,7 @@ syntax on
 
 " git branch
 ""set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
-set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%-14.(%l,%c%V%)\ %P 
+"set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%-14.(%l,%c%V%)\ %P 
 
 " Require <Leader> before gu*/gU* (Change to lowr/upper case)
 " （打ち間違えで）勝手に小文字になる問題の対応
