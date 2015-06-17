@@ -37,10 +37,11 @@ compinit
 export LANG=ja_JP.UTF-8
 export LESSCHARSET=utf-8
 
-alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
-alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+# alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+# alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 #alias vi=mvim
 #alias vim=mvim
+alias vi='open -a MacVim "$@"'
 
 PROMPT="%/%% "
 PROMPT2="%_%% "

@@ -77,6 +77,14 @@ set ttyfast
 nnoremap d "_d
 
 
+" color
+set background=light
+colorscheme hybrid 
+
+" window size
+set columns=150
+set lines=48
+
 "-------------------------------------------------------------------------------
 "" インデント Indent
 "-------------------------------------------------------------------------------
@@ -219,8 +227,12 @@ NeoBundle 'scrooloose/nerdtree'
 
 " nerdtree用タブ移動ショートカット 
 nnoremap <C-]> gt
-" 効いてない？
 nnoremap <C-[> gT 
+
+" comment out
+NeoBundle "tyru/caw.vim.git"
+nmap ,c <Plug>(caw:i:toggle)
+vmap ,c <Plug>(caw:i:toggle)
 
 call neobundle#end()
 
@@ -325,3 +337,7 @@ noremap gu <Nop>
 noremap gU <Nop>
 noremap <Leader>gu gu
 noremap <Leader>gU gu
+
+" USキーボード用
+noremap ; :
+noremap : ;
