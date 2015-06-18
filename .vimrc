@@ -33,7 +33,7 @@ set clipboard=unnamed
 imap <C-p>  <ESC>"*pa
 " 
 " 文字コードと改行文字の種別を表示 
-set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
+" set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
 
 " php構文チェック(:make でチェックできる)
 autocmd filetype php :set makeprg=php\ -l\ %
@@ -85,6 +85,8 @@ colorscheme hybrid
 set columns=150
 set lines=48
 
+" statusline を常に表示
+set laststatus=2
 "-------------------------------------------------------------------------------
 "" インデント Indent
 "-------------------------------------------------------------------------------
@@ -221,7 +223,7 @@ NeoBundle 'Shougo/vimproc'
 "after install, turn shell ~/.vim/bundle/vimproc, (n,g)make -f your_machines_makefile
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
-"NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'scrooloose/nerdtree'
 
@@ -234,6 +236,18 @@ NeoBundle "tyru/caw.vim.git"
 nmap ,c <Plug>(caw:i:toggle)
 vmap ,c <Plug>(caw:i:toggle)
 
+"
+" markdown
+"
+NeoBundle 'plasticboy/vim-markdown'
+NeoBundle 'kannokanno/previm'
+NeoBundle 'tyru/open-browser.vim'
+
+au BufRead,BufNewFile *.md set filetype=markdown
+" let g:previm_open_cmd = 'open -a Firefox'
+
+
+"neobundle end
 call neobundle#end()
 
 filetype plugin on
@@ -328,8 +342,7 @@ augroup END
 syntax on
 
 " git branch
-""set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
-"set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%-14.(%l,%c%V%)\ %P 
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%-14.(%l,%c%V%)\ %P 
 
 " Require <Leader> before gu*/gU* (Change to lowr/upper case)
 " （打ち間違えで）勝手に小文字になる問題の対応
