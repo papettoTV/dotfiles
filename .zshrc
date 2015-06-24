@@ -113,3 +113,7 @@ setopt NO_beep
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+### add apache ant
+export ANT_HOME="/usr/bin/apache-ant-1.9.5"
+export PATH="$ANT_HOME/bin:$PATH"
