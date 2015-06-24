@@ -60,7 +60,16 @@ alias slivedjs='ssh -i ~/.ssh/livedjs.pem root@ec2-54-248-189-104.ap-northeast-1
 alias splay='ssh -i .ssh/sakura_rsa yokota@playispeace.com'
 
 alias fgrep='find . -name "*.*" -print0 | xargs -0 grep -i -l'
-alias o='open'
+# function o() {
+alias o='op' # なぜかo単体だと前の設定が残ったので間接的にalias挟んで解決
+# ファイルがない場合にエラーが出るので、ファイルを作ってからオープン
+# 本当は、一時的に開いて、保存しなければ空ファイルが残らないようにしたい
+function op() {
+ if [ ! -e "$1" ]; then
+	touch $1
+fi
+open "$1"
+}
 
 alias gitx='/Applications/GitX.app/Contents/MacOS/GitX'
 alias gith='git push heroku master && heroku logs --tail'
