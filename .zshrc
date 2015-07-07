@@ -41,7 +41,30 @@ export LESSCHARSET=utf-8
 # alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 #alias vi=mvim
 #alias vim=mvim
-alias vi='open -a MacVim "$@"'
+#alias vi='open -a MacVim "$@"'
+alias vi='gvim "$@"'
+# ファイルがない場合でも、vi開ける様http://qiita.com/b4b4r07/items/9013e19ba47fd07e87b5
+function gvim() {
+    if [ $# -eq 0 ]; then
+        open -a MacVim
+    elif [ $# -eq 1 ]; then
+        if [ ! -f "$1" ]; then
+            touch "$1" || return 1
+        fi
+        touch -t $( date -v+1S +'%Y%m%d%H%M' ) ~/.compare
+        open -a MacVim "$1" && {
+            sleep 0.2
+            if [ ~/.compare -ot "$1" ]; then
+                [ ! -s "$1" ] && rm "$1"
+            fi
+            rm ~/.compare
+        }
+    else
+        echo "$@: invalid arguments"
+        return 1
+    fi
+    return 0
+}
 
 PROMPT="%/%% "
 PROMPT2="%_%% "
