@@ -226,12 +226,7 @@ NeoBundle 'Shougo/neosnippet'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'scrooloose/nerdtree'
-" 
-" nerdtree用タブ移動ショートカット 
-" なぜかescでタブ移動してしまう問題と
-" なくても動作してるのでコメントアウト
-" nnoremap <C-]> gt
-" nnoremap <C-[> gT 
+NeoBundle 'tpope/vim-surround'
 
 " comment out
 NeoBundle "tyru/caw.vim.git"
