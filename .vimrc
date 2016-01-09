@@ -1,3 +1,5 @@
+"set vimrc_local_finish=0
+
 "https://github.com/yuroyoro/dotfiles/blob/master/.vimrc 参考
 "-------------------------------------------------------------------------------
 "" 基本設定 Basics
@@ -223,10 +225,17 @@ NeoBundle 'Shougo/vimproc'
 "after install, turn shell ~/.vim/bundle/vimproc, (n,g)make -f your_machines_makefile
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
+
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'kchmck/vim-coffee-script'
+" indentの深さに色を付ける
+NeoBundle 'nathanaelkane/vim-indent-guides'
+
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'tpope/vim-surround'
+
+NeoBundle 'kchmck/vim-coffee-script'
 
 " comment out
 NeoBundle "tyru/caw.vim.git"
@@ -239,11 +248,12 @@ vmap ,c <Plug>(caw:i:toggle)
 NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'tyru/open-browser.vim'
+NeoBundle 'digitaltoad/vim-jade'
 
 au BufRead,BufNewFile *.md set filetype=markdown
 " let g:previm_open_cmd = 'open -a Firefox'
 
-" for saleforce
+" for salesforce
 NeoBundle 'neowit/vim-force.com'
 set nocompatible
 
@@ -255,11 +265,13 @@ endif
 " make sure vim loads apexcode filetype detection
 runtime ftdetect/vim-force.com.vim
 
-let g:apex_backup_folder="/backup"
-let g:apex_temp_folder="/tmp"
+let g:apex_backup_folder="/Users/yokotaeiji/Documents/pj/force.com/backup"
+let g:apex_temp_folder="/Users/yokotaeiji/Documents/pj/force.com/tmp"
 let g:apex_properties_folder="/Users/yokotaeiji/Documents/pj/force.com/properties"
 let g:apex_tooling_force_dot_com_path="/Users/yokotaeiji/.ant/lib/tooling-force.com-0.3.3.3.jar"
 let g:apex_workspace_path="/Users/yokotaeiji/Documents/pj/force.com/"
+let g:apex_workspace_path="/Users/yokotaeiji/Documents/pj/force.com/"
+cnoremap wd w<CR>ApexDeploy
 "
 " let g:apex_deployment_error_log="/tmp/gvim-deployment-error.log"
 
@@ -370,3 +382,31 @@ noremap <Leader>gU gu
 " USキーボード用
 noremap ; :
 noremap : ;
+
+" vimにcoffeeファイルタイプを認識させる
+au BufRead,BufNewFile,BufReadPre *.coffee   set filetype=coffee
+" インデントを設定
+autocmd FileType coffee     setlocal sw=2 sts=2 ts=2 et
+
+"------------------------------------
+" indent_guides
+"------------------------------------
+" インデントの深さに色を付ける
+let g:indent_guides_start_level=2
+let g:indent_guides_auto_colors=0
+let g:indent_guides_enable_on_vim_startup=0
+let g:indent_guides_color_change_percent=20
+let g:indent_guides_guide_size=1
+let g:indent_guides_space_guides=1
+
+hi IndentGuidesOdd  ctermbg=235
+hi IndentGuidesEven ctermbg=237
+au FileType coffee,ruby,javascript,python IndentGuidesEnable
+nmap <silent><Leader>ig <Plug>IndentGuidesToggle
+
+
+"------------------------------------
+" Force.com
+"------------------------------------
+"deploy shortcut ただし効いてないっぽい
+noremap ad ApexDeploy
