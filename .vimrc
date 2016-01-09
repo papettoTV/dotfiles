@@ -23,7 +23,7 @@ set showmode                     " 現在のモードを表示
 "set modelines=0                  " モードラインは無効
 
 " OSのクリップボードを使用する
-set clipboard+=unnamed
+"set clipboard+=unnamed
 " ターミナルでマウスを使用できるようにする
 set mouse=a
 set guioptions+=a
