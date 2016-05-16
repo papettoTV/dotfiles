@@ -149,3 +149,6 @@ export PATH="/usr/local/heroku/bin:$PATH"
 ### add apache ant
 export ANT_HOME="/usr/bin/apache-ant-1.9.5"
 export PATH="$ANT_HOME/bin:$PATH"
+
+# heroku shortcut
+alias hdep="git push heroku master"
