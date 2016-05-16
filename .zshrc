@@ -151,4 +151,4 @@ export ANT_HOME="/usr/bin/apache-ant-1.9.5"
 export PATH="$ANT_HOME/bin:$PATH"
 
 # heroku shortcut
-alias hdep="git push heroku master"
+alias hdeploy="git push heroku master"
