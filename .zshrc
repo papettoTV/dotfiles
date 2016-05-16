@@ -156,3 +156,6 @@ export PATH="$ANT_HOME/bin:$PATH"
 [[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc
 # laravel
 export PATH="$HOME/.composer/vendor/bin:$PATH"
+
+# heroku shortcut
+alias hdeploy="git push heroku master"
