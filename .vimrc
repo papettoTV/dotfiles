@@ -216,7 +216,7 @@ command! Sjis Cp932
 filetype off 
 
 if has('vim_starting')
-  set runtimepath+=~/.vim/neobundle.vim
+  set runtimepath+=~/.vim/.bundle/neobundle.vim
   call neobundle#begin(expand('~/.vim/.bundle'))
 endif
 
@@ -269,7 +269,7 @@ let g:apex_backup_folder="/Users/yokotaeiji/Documents/pj/force.com/backup"
 let g:apex_temp_folder="/Users/yokotaeiji/Documents/pj/force.com/tmp"
 let g:apex_properties_folder="/Users/yokotaeiji/Documents/pj/force.com/properties"
 let g:apex_tooling_force_dot_com_path="/Users/yokotaeiji/.ant/lib/tooling-force.com-0.3.3.3.jar"
-let g:apex_workspace_path="/Users/yokotaeiji/Documents/pj/force.com/"
+
 let g:apex_workspace_path="/Users/yokotaeiji/Documents/pj/force.com/"
 cnoremap wd w<CR>ApexDeploy
 "

@@ -37,7 +37,7 @@ compinit
 export LANG=ja_JP.UTF-8
 export LESSCHARSET=utf-8
 
-# alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 # alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 alias vi=mvim
 alias vim=mvim
@@ -81,6 +81,7 @@ alias sdeco='ssh swirl@49.212.32.104 -p 8022'
 alias sktv='ssh swirl@49.212.125.216'
 alias slivedjs='ssh -i ~/.ssh/livedjs.pem root@ec2-54-248-189-104.ap-northeast-1.compute.amazonaws.com'
 alias splay='ssh -i .ssh/sakura_rsa yokota@playispeace.com'
+alias spi='ssh pi@192.168.0.20'
 
 alias fgrep='find . -name "*.*" -print0 | xargs -0 grep -i -l'
 # function o() {
@@ -147,5 +148,11 @@ setopt NO_beep
 export PATH="/usr/local/heroku/bin:$PATH"
 
 ### add apache ant
-export ANT_HOME="/usr/bin/apache-ant-1.9.5"
+#export ANT_HOME="/usr/bin/apache-ant-1.9.5"
+export ANT_HOME="/usr/local/bin/apache-ant-1.9.6"
 export PATH="$ANT_HOME/bin:$PATH"
+
+# php
+[[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc
+# laravel
+export PATH="$HOME/.composer/vendor/bin:$PATH"
