@@ -82,7 +82,7 @@ alias sktv='ssh swirl@49.212.125.216'
 alias slivedjs='ssh -i ~/.ssh/livedjs.pem root@ec2-54-248-189-104.ap-northeast-1.compute.amazonaws.com'
 alias splay='ssh -i .ssh/sakura_rsa yokota@playispeace.com'
 
-alias fgrep='find . -name "*.*" -print0 | xargs -0 grep -i -l'
+alias fgrep='find . -iname "*.*" -print0 | xargs -0 grep -i -l'
 # function o() {
 alias o='op' # なぜかo単体だと前の設定が残ったので間接的にalias挟んで解決
 # ファイルがない場合にエラーが出るので、ファイルを作ってからオープン
