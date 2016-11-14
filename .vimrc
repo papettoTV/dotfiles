@@ -80,7 +80,7 @@ nnoremap d "_d
 
 
 " color
-set background=light
+set background=dark
 colorscheme hybrid 
 
 " window size
