@@ -93,7 +93,7 @@ set laststatus=2
 "" インデント Indent
 "-------------------------------------------------------------------------------
 set autoindent   " 自動でインデント
-set paste        " ペースト時にautoindentを無効に(onにするとautocomplpop.vimが動かない)
+"set paste        " ペースト時にautoindentを無効に(onにするとautocomplpop.vimが動かない)
 set smartindent  " 新しい行を開始したときに、新しい行のインデントを現在行と同じ量にする。
 set cindent      " Cプログラムファイルの自動インデントを始める
 
@@ -215,10 +215,10 @@ command! Sjis Cp932
 """""""
 filetype off 
 
-if has('vim_starting')
+" if has('vim_starting')
   set runtimepath+=~/.vim/.bundle/neobundle.vim
   call neobundle#begin(expand('~/.vim/.bundle'))
-endif
+" endif
 
 NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/vimproc'
@@ -239,8 +239,11 @@ NeoBundle 'kchmck/vim-coffee-script'
 
 " comment out
 NeoBundle "tyru/caw.vim.git"
-nmap ,c <Plug>(caw:i:toggle)
-vmap ,c <Plug>(caw:i:toggle)
+" nmap ,c <Plug>(caw:i:toggle)
+" vmap ,c <Plug>(caw:i:toggle)
+nmap ,c <Plug>(caw:hatpos:toggle)
+vmap ,c <Plug>(caw:hatpos:toggle)
+
 
 "
 " markdown
@@ -346,16 +349,18 @@ inoremap <expr><C-e> neocomplcache#cancel_popup()
 ""
 " 括弧補完
 ""
-inoremap { {}<LEFT>
-inoremap [ []<LEFT>
-inoremap ( ()<LEFT>
 inoremap " ""<LEFT>
 inoremap ' ''<LEFT>
+inoremap [ []<LEFT>
 vnoremap { "zdi{<C-R>z}<ESC>
 vnoremap [ "zdi[<C-R>z]<ESC>
 vnoremap ( "zdi(<C-R>z)<ESC>
 vnoremap " "zdi"<C-R>z"<ESC>
 vnoremap ' "zdi'<C-R>z'<ESC>
+inoremap { {}<Left>
+inoremap {<Enter> {}<Left><CR><ESC><S-o>
+inoremap ( ()<ESC>i
+inoremap (<Enter> ()<Left><CR><ESC><S-o>
 
 
 " 保存に失敗して画面が横に伸びる対策
