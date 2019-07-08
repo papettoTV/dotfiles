@@ -159,3 +159,10 @@ export PATH="$HOME/.composer/vendor/bin:$PATH"
 
 # heroku shortcut
 alias hdeploy="git push heroku master"
+
+# python
+# 以下ではうまく2.7から3系に切り替わらなかったので
+# export PATH="/usr/local/bin:$PATH"
+# エイリアスで対応
+alias python=/usr/local/bin/python3
+
