@@ -243,6 +243,11 @@ NeoBundle "tyru/caw.vim.git"
 " vmap ,c <Plug>(caw:i:toggle)
 nmap ,c <Plug>(caw:hatpos:toggle)
 vmap ,c <Plug>(caw:hatpos:toggle)
+nmap <C-K> <Plug>(caw:hatpos:toggle)
+vmap <C-K> <Plug>(caw:hatpos:toggle)
+" 行頭にコメントをトグル
+nmap <Leader>,c <Plug>(caw:zeropos:toggle)
+vmap <Leader>,c <Plug>(caw:zeropos:toggle)
 
 
 "
