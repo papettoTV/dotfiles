@@ -136,7 +136,7 @@ precmd() {
     LANG=en_US.UTF-8 vcs_info
     psvar[1]=$vcs_info_msg_0_
 }
-PROMPT=$'%2F%n@%m%f %3F%~%f%1v%# '
+PROMPT=$'%3F%~%f%1v%# '
 
 # cd = cd & ls 
 function chpwd() { ls; echo -ne "\033]0;$(pwd | rev | awk -F \/ '{print "/"$1"/"$2}'| rev)\007"}
@@ -165,6 +165,3 @@ alias hdeploy="git push heroku master"
 # export PATH="/usr/local/bin:$PATH"
 # エイリアスで対応
 alias python=/usr/local/bin/python3
-
-# コマンド時の表示
-export PS1="%~ $"
