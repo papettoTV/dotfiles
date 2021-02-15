@@ -166,3 +166,5 @@ alias hdeploy="git push heroku master"
 # エイリアスで対応
 alias python=/usr/local/bin/python3
 
+# コマンド時の表示
+export PS1="%~ $"
