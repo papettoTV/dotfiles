@@ -37,12 +37,12 @@ compinit
 export LANG=ja_JP.UTF-8
 export LESSCHARSET=utf-8
 
-alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+# alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 # alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
-alias vi=mvim
-alias vim=mvim
+#alias vi=mvim
+#alias vim=mvim
 #alias vi='open -a MacVim "$@"'
-alias vi='gvim "$@"'
+#alias vi='gvim "$@"'
 # ファイルがない場合でも、vi開ける様http://qiita.com/b4b4r07/items/9013e19ba47fd07e87b5
 function gvim() {
     if [ $# -eq 0 ]; then
