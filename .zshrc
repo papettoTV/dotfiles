@@ -165,3 +165,6 @@ alias hdeploy="git push heroku master"
 # export PATH="/usr/local/bin:$PATH"
 # エイリアスで対応
 alias python=/usr/local/bin/python3
+
+# curl時の "zsh: no matches found:" 対策
+setopt nonomatch
