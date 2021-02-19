@@ -394,6 +394,8 @@ noremap <Leader>gU gu
 " USキーボード用
 noremap ; :
 noremap : ;
+vnoremap ; :
+vnoremap : ;
 
 " vimにcoffeeファイルタイプを認識させる
 au BufRead,BufNewFile,BufReadPre *.coffee   set filetype=coffee
