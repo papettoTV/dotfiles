@@ -168,3 +168,6 @@ alias hdeploy="git push heroku master"
 
 # curl時の "zsh: no matches found:" 対策
 setopt nonomatch
+
+# nodebrew用
+export PATH=$HOME/.nodebrew/current/bin:$PATH
