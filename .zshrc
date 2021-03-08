@@ -171,3 +171,11 @@ setopt nonomatch
 
 # nodebrew用
 export PATH=$HOME/.nodebrew/current/bin:$PATH
+
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# aws cli version2
+alias aws='docker run --rm -it -v ~/.aws:/root/.aws -v $(pwd):/aws amazon/aws-cli'
