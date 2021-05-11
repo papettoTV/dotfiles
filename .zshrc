@@ -71,8 +71,8 @@ PROMPT2="%_%% "
 SPROMPT="%r is correct? [n,y,a,e]: "
 
 PATH=/opt/local/bin:$PATH
-PATH=/Users/yokotaeiji/Documents/PJ/swirl.jp/src/cake_pet/cake/console:$PATH
-PATH=/Users/yokotaeiji/bin:$PATH
+# PATH=/Users/yokotaeiji/Documents/PJ/swirl.jp/src/cake_pet/cake/console:$PATH
+# PATH=/Users/yokotaeiji/bin:$PATH
 
 alias sdev='ssh -i ~/.ssh/sakura_rsa swirldev@testdeco.swirl.jp'
 alias sardev='ssh -i ~/.ssh/sakura_rsa swirl@49.212.125.216'
