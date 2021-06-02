@@ -43,6 +43,12 @@ alias splay='ssh -i .ssh/sakura_rsa yokota@playispeace.com'
 alias fgrep='find . -iname "*.*" -print0 | xargs -0 grep -i -l'
 
 # コマンド右側の表示
+autoload -Uz vcs_info
+precmd() {
+    psvar=()
+    LANG=en_US.UTF-8 vcs_info
+    psvar[1]=$vcs_info_msg_0_
+}
 PROMPT=$'%3F%~%f%1v%# '
 # 
 SPROMPT="%r is correct? [n,y,a,e]: "
