@@ -25,8 +25,6 @@ setopt correct
 export CLICOLOR=1
 export LSCOLORS=gxfxcxdxbxegedabagacad
 export LS_COLORS=gxfxcxdxbxegedabagacad
-# error on macbook
-#eval $(gdircolors ~/.dotfiles/lscolor/dircolors-solarized/dircolors.ansi-universal)
 autoload -U compinit
 compinit
 
@@ -34,33 +32,20 @@ compinit
 export LANG=ja_JP.UTF-8
 export LESSCHARSET=utf-8
 
-# alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+# vi alias
 alias vi='/Applications/Visual\ Studio\ Code.app/Contents/MacOS/Electron "$@"'
 
-PROMPT="%/%% "
-PROMPT2="%_%% "
-SPROMPT="%r is correct? [n,y,a,e]: "
 
+# ssh playispeace server alias
 alias splay='ssh -i .ssh/sakura_rsa yokota@playispeace.com'
 
+# custom file name grep
 alias fgrep='find . -iname "*.*" -print0 | xargs -0 grep -i -l'
 
-# function o() {
-# alias o='op' # なぜかo単体だと前の設定が残ったので間接的にalias挟んで解決
-# ファイルがない場合にエラーが出るので、ファイルを作ってからオープン
-# 本当は、一時的に開いて、保存しなければ空ファイルが残らないようにしたい
-function op() {
-if [ ! -e "$1" ]; then
-  touch $1
-fi
-  open "$1"
-}
-
-TERM=xterm
-
-# git settings
-# autoload -Uz vcs_info
+# コマンド右側の表示
 PROMPT=$'%3F%~%f%1v%# '
+# 
+SPROMPT="%r is correct? [n,y,a,e]: "
 
 # cd = cd & ls 
 function chpwd() { ls; echo -ne "\033]0;$(pwd | rev | awk -F \/ '{print "/"$1"/"$2}'| rev)\007"}
