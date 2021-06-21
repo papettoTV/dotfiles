@@ -32,17 +32,16 @@ compinit
 export LANG=ja_JP.UTF-8
 export LESSCHARSET=utf-8
 
-# vi alias
-alias vi='/Applications/Visual\ Studio\ Code.app/Contents/MacOS/Electron "$@"'
-
-
 # ssh playispeace server alias
 alias splay='ssh -i .ssh/sakura_rsa yokota@playispeace.com'
 
 # custom file name grep
 alias fgrep='find . -iname "*.*" -print0 | xargs -0 grep -i -l'
 
-# コマンド右側の表示
+# open alias
+alias o='open'
+
+# コマンドプロンプト左側の表示
 autoload -Uz vcs_info
 precmd() {
     psvar=()
