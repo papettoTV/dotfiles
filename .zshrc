@@ -82,3 +82,6 @@ eval "$(pyenv init -)"
 
 # aws cli version2
 alias aws='docker run --rm -it -v ~/.aws:/root/.aws -v $(pwd):/aws amazon/aws-cli'
+
+# conda
+export PATH=/Users/eijiyokota/miniforge3/bin/:$PATH  
